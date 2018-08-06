@@ -4,15 +4,22 @@ import ProductList from '../components/ProductList';
 
 const Products = ({ dispatch, products }) => {
   function handleDelete(id) {
+    // dispatch({
+    //   type: 'products/delete',
+    //   payload: id,
+    // });
+    debugger;
     dispatch({
-      type: 'products/delete',
-      payload: id,
+      type: 'detailed/delete',
     });
+  }
+  function show(){
+    alert("success");
   }
   return (
     <div>
       <h2>List of Products</h2>
-      <ProductList onDelete={handleDelete} products={products} />
+      <ProductList onDelete={handleDelete} products={products} onDelete2={show}/>
     </div>
   );
 };

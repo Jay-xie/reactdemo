@@ -9,6 +9,10 @@ const app = dva({
        { name: 'dva', id: 1 },
        { name: 'antd', id: 2 },
      ],
+     detaileds: [
+       { name: 'me', id: 1 },
+       { email: 'emails', id: 2}
+     ]
    },
  });
 
@@ -18,6 +22,7 @@ const app = dva({
 // 3. Model
 // app.model(require('./models/example').default);
 app.model(require('./models/products').default);
+app.model(require('./models/Detailed').default);
 
 // 4. Router
 app.router(require('./router').default);
