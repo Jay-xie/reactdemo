@@ -2,9 +2,9 @@ export default {
     namespace: 'detailed',
     state: [],
     reducers: {
-      'delete'(state) {
+      'delete'(state, { payload: name }) {
         debugger;
-        return state;
+        return [{...state[0],name}];
       },
     },
   };

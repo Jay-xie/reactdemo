@@ -1,26 +1,28 @@
 import React from 'react';
 import { connect } from 'dva';
-import DetailedList from '../components/DetailedList'
+//import DetailedList from '../components/DetailedList'
+//           <DetailedList onDetailed={show} detailedlist={detailed} ></DetailedList>
+import { Button} from 'antd';
 
-const Detailed = ({ dispatch, detaileds} ) => {
-    const detaileds2=[
-        { name: 'me', id: 1 },
-        { email: 'emails', id: 2}
-      ]
-    function show(){
+var i=1;
+const Detailed = ({ dispatch, detailed} ) => {
+    function show(name){
         debugger;
+        i=i+1;
         dispatch({
             type: 'detailed/delete',
-            payload:""
+            payload: name+i
           });
       }
     return (
         <div>
           <h2>List of Detailed</h2>
-          <DetailedList onDetailed={show} detailedlist={detaileds2} ></DetailedList>
+
+          <Button type="primary" onClick = {show} >Delete</Button>
+          <span>{detailed[0].name}</span>
         </div>
       );
 }
-export default connect(({ detaileds }) => ({
-    detaileds,
+export default connect(({ detailed }) => ({
+  detailed,
   }))(Detailed);
